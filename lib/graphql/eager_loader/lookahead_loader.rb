@@ -7,7 +7,7 @@ module Graphql::EagerLoader
     #
     # Here's a full example with 'graphql' field:
     #
-    # field :projects, Types::ProjectType, null: true, extras: [:lookahead]
+    # field :projects, Types::ProjectType.connection_type, null: true, extras: [:lookahead]
     # def projects(lookahead:)
     #   Graphql::EagerLoader::LookaheadLoader.call(Project, lookahead).all # or: .where(published: true)
     # end
@@ -36,7 +36,7 @@ module Graphql::EagerLoader
     # This method allows you to add additional functionality while eager loading app's models.
     # For example you can do stuff like (notice the location of `.all` below):
     #
-    # field :projects, Types::ProjectType, null: true, extras: [:lookahead]
+    # field :projects, Types::ProjectType.connection_type, null: true, extras: [:lookahead]
     # def projects(lookahead:)
     #   Graphql::EagerLoader::LookaheadLoader.call(Project, lookahead) do |eager_loaded_model, associations|
     #     associations.values.each do |association|
